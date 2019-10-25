@@ -6,7 +6,7 @@
         <artifactId>SdkSkeleton</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <artifactId>Examples</artifactId>
+    <artifactId>Client</artifactId>
     <packaging>jar</packaging>
     <dependencies>
         <dependency>

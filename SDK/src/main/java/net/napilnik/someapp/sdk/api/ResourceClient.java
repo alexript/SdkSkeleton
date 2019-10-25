@@ -29,7 +29,11 @@ public class ResourceClient extends ResourceJerseyClient {
     }
 
     public ResourceResponse get() throws ClientErrorException {
-        return super.get(ResourceResponse.class); 
+        try {
+            return super.get(ResourceResponse.class);
+        } catch (javax.ws.rs.ProcessingException ex) {
+            throw new ClientErrorException(404);
+        }
     }
 
     private static final Logger LOGGER = Logger.getLogger(ResourceClient.class.getName());
