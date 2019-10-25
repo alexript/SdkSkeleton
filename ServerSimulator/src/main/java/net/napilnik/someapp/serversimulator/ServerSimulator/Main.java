@@ -20,8 +20,8 @@ public class Main {
     public static final MetricRegistry METRIC_REGISTRY = new MetricRegistry();
 
     // Base URI parameters the Grizzly HTTP server will listen on
-    private static String host;
-    private static String port;
+    public static String host;
+    public static String port;
 
     public static String getBaseUri()
     {
@@ -65,7 +65,9 @@ public class Main {
         reporter.start();
 
         CLStaticHttpHandler staticHttpHandler = new CLStaticHttpHandler(Main.class.getClassLoader(), "swagger-ui/");
-        server.getServerConfiguration().addHttpHandler(staticHttpHandler, "/docs");
+        server.getServerConfiguration().addHttpHandler(staticHttpHandler, new String[]{"/docs"});
+
+
 
         logger.info("net.napilnik.someapp.serversimulator.ServerSimulator starting on port 8080... Ctrl-C to cancel");
 
